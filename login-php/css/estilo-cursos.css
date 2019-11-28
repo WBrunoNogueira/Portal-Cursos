@@ -1,0 +1,15 @@
+body{
+	background:  #1C0924;
+}
+nav{
+	
+	border-bottom: 2px solid;
+
+}
+.alert{
+	margin-top: 100px;
+	display: flex;
+  align-items: center;
+  justify-content: center;
+	position: absolute;
+}
