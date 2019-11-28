@@ -16,11 +16,13 @@ if(!isset($_SESSION))
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="css/estilo.css">
+  <link rel="stylesheet" type="text/css" href="css/estilo-cursos.css">
   <title>PLay</title>
   <style type="text/css">
     
-
+    label{
+      color: white;
+    }
   </style>
 
 
@@ -33,6 +35,7 @@ if(!isset($_SESSION))
             $maxsize = 10485760; // 5MB
 
             $name = $_REQUEST ["titulo"];
+            $texto_video = $_REQUEST ["texto_video"];
             $target_dir = "videos/";
             $target_file = $target_dir . $_FILES["file"]["name"];
 
@@ -52,7 +55,7 @@ if(!isset($_SESSION))
                     // Upload
                 if(move_uploaded_file($_FILES['file']['tmp_name'],$target_file)){
                         // Insert record
-                  $query = "INSERT INTO videos(titulo_video,descricao_video) VALUES('".$name."','".$target_file."')";
+                  $query = "INSERT INTO videos(titulo_video,descricao_video,texto_video) VALUES('".$name."','".$target_file."','".$texto_video."')";
 
                   mysqli_query($conexao,$query);
                   echo "<div class='alert alert-success' role='alert'>
@@ -80,9 +83,7 @@ if(!isset($_SESSION))
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="painel.php">Inicio<span class="sr-only">(current)</span></a>
-                </li>
+                
                 <li class="nav-item active">
                   <a class="nav-link" href="cursos.php">Lista videos <span class="sr-only">(current)</span></a>
                 </li>
@@ -111,9 +112,9 @@ if(!isset($_SESSION))
                 </div>
                 <div class= "form-group">
                   <label>Descrição do video: </label>
-                  <input type="text" name="descricao" class="form-control">
+                  <input type="text" name="texto_video" class="form-control">
                 </div>
-                <input type='file' name='file' />
+                <input style="color: red;" type='file' name='file' />
                 <br>
                 <br>
 

@@ -56,9 +56,7 @@ if(!isset($_SESSION))
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="painel.php">Inicio<span class="sr-only">(current)</span></a>
-          </li>
+        
           <li class="nav-item active">
             <a class="nav-link" href="cursos.php">Lista videos <span class="sr-only">(current)</span></a>
           </li>
@@ -93,6 +91,7 @@ if(!isset($_SESSION))
         $location = $row['descricao_video'];
         $name = $row['titulo_video'];
         $id = $row['idvideos'];
+        $texto_video = $row['texto_video'];
 
       
 
@@ -111,7 +110,7 @@ if(!isset($_SESSION))
        echo         "</div>";
         echo       "<div class='d-block' style='position: relative; float: left;'>";
         echo         "<h4 class='card-title'>$name</h4><!--nome do video-->";
-        echo         "<p class='card-text'>$location</p><!--descrição-->";
+        echo         "<p class='card-text'>$texto_video</p><!--descrição-->";
 
         echo          "<br />";
         echo       "</div>";

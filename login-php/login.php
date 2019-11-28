@@ -18,7 +18,7 @@ $row = mysqli_num_rows($result);
 
 if($row == 1) {
 	$_SESSION['usuario'] = $usuario;
-	header('Location: painel.php');
+	header('Location: cursos.php');
 	exit();
 } else {
 	$_SESSION['nao_autenticado'] = true;
